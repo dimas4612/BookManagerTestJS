@@ -23,18 +23,43 @@ describe('BookManager', () => {
     expect(bookManager.getBookCount()).toBe(0);
   });
 
-  //Lengkapi unit test dibawah untuk buku yang mencang tidak terdapat pada list
+  // Test menghapus buku yang tidak ada
   test('Test menghapus buku yang tidak ada', () => {
+    const book = new Book("Existing Book", "Author", 2023);
+    bookManager.addBook(book);
 
+    const removed = bookManager.removeBook("Nonexistent Book");
+    expect(removed).toBe(false);
+    expect(bookManager.getBookCount()).toBe(1);
   });
 
-  //Lengkapi unit test dibawah untuk bmencari buku berdasarkan penulis
+  // Test mencari buku berdasarkan author
   test('Test mencari buku berdasarkan author', () => {
+    const book1 = new Book("Book One", "Same Author", 2020);
+    const book2 = new Book("Book Two", "Same Author", 2021);
+    const book3 = new Book("Book Three", "Other Author", 2022);
 
+    bookManager.addBook(book1);
+    bookManager.addBook(book2);
+    bookManager.addBook(book3);
+
+    const results = bookManager.findBooksByAuthor("Same Author");
+    expect(results.length).toBe(2);
+    expect(results).toContainEqual(book1);
+    expect(results).toContainEqual(book2);
   });
 
-  //Lengkapi unit test dibawah untuk seluruh buku yang ada di dalam list
+  // Test mendapatkan semua buku
   test('Test mendapatkan semua buku', () => {
+    const book1 = new Book("Book One", "Author A", 2020);
+    const book2 = new Book("Book Two", "Author B", 2021);
 
+    bookManager.addBook(book1);
+    bookManager.addBook(book2);
+
+    const allBooks = bookManager.getAllBooks();
+    expect(allBooks.length).toBe(2);
+    expect(allBooks).toContainEqual(book1);
+    expect(allBooks).toContainEqual(book2);
   });
 });

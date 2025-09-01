@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1756387992804" clover="3.2.0">
-  <project timestamp="1756387992804" name="All files">
+<coverage generated="1756549480787" clover="3.2.0">
+  <project timestamp="1756549480788" name="All files">
     <metrics statements="43" coveredstatements="19" conditionals="35" coveredconditionals="13" methods="16" coveredmethods="6" elements="94" coveredelements="38" complexity="0" loc="43" ncloc="43" packages="1" files="2" classes="2"/>
     <file name="book.js" path="D:\BookManagerJS\book.js">
       <metrics statements="14" coveredstatements="7" conditionals="17" coveredconditionals="9" methods="3" coveredmethods="1"/>
